@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@nanostores/react": "github:ai/react"
+  },
+  "devDependencies": {
+    "@better-auth/cli": "^1.4.17"
+  }
+}
