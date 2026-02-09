@@ -9,7 +9,7 @@ from src.services.agent_runner import run_agent
 
 router = APIRouter()
 
-@router.get("/api/chat/health")
+@router.get("/chat/health")
 async def chat_health_check():
     return {"status": "ok"}
 
@@ -32,7 +32,7 @@ class MessageResponse(BaseModel):
     content: Optional[str] = None
     tool_calls: Optional[List[Any]] = None
 
-@router.get("/api/{user_id}/chat", response_model=List[MessageResponse])
+@router.get("/{user_id}/chat", response_model=List[MessageResponse])
 async def get_chat_history(
     user_id: str,
     conversation_id: Optional[int] = None,
@@ -59,7 +59,7 @@ async def get_chat_history(
         ))
     return response
 
-@router.post("/api/{user_id}/chat", response_model=ChatResponse)
+@router.post("/{user_id}/chat", response_model=ChatResponse)
 async def chat_endpoint(
     user_id: str,
     request: ChatSDKRequest,

@@ -22,9 +22,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(auth_test.router, prefix="/api")
-app.include_router(tasks.router, prefix="/api")
-app.include_router(categories.router, prefix="/api/categories", tags=["categories"])
+app.include_router(auth_test.router)
+app.include_router(tasks.router)
+app.include_router(categories.router, tags=["categories"])
 app.include_router(chat.router)
 
 @app.get("/")
